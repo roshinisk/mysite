@@ -74,7 +74,7 @@ def delete_post(request, id):
 
 
 def signup(request):
-    template ='registration/signup.html'
+    template_name ='registration/signup.html'
     context = {}
 
     if request.method == "POST":
@@ -87,12 +87,12 @@ def signup(request):
 
         if len(User.objects.filter(email=email))!=0:
             context['errors']="Email is already used"
-            return render(request, template, context)
+            return render(request, template_name, context)
 
 
         if len(User.objects.filter(username=username))!= 0:
             context['errors']="Username is already used"
-            return render(request, template, context)
+            return render(request, template_name, context)
 
         if password1 == password2:
             user = User(first_name=firstname, last_name=lastname, email=email, username=username)
@@ -100,4 +100,4 @@ def signup(request):
             user.save()
             return redirect('login')
 
-    return render(request, template, context)
+    return render(request, template_name, context)
