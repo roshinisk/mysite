@@ -35,7 +35,7 @@
               <li><a href="#" style="...">{{ request.user.username }}</a></li>
         <li><a href="{% url 'logout' %}" style="color: white">Logout</a></li>
           {% else %}
-        <li><a href="{% url 'login %' %}" style="color: white">Logout</a></li>
+        <li><a href="{% url 'login' %}" style="color: white">Logout</a></li>
           {% endif %}
       </ul>
     </div><!-- /.navbar-collapse -->
